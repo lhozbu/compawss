@@ -1,0 +1,22 @@
+@import "assets/css/bootstrap-vars.css";
+
+html {
+  height: 100vh;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: none;
+}
+
+main {
+  flex: 1 0 auto;
+  z-index: 0;
+  min-height: 50vh;
+}
+
+footer {
+  flex-shrink: 0;
+}

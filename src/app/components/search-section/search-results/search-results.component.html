@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-sm">
+    <div class="d-grid gap-2 mb-2">
+      <button (click)="open()" class="btn btn-sm btn-dark shadow mt-1" type="button">
+        <span class="fa-solid fa-bars fa-fw"></span>
+        Results
+        <span *ngIf="animals.length > 0" class="badge bg-secondary ms-2">{{animals.length}}</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<ng-template #resultsOffCanvas let-offcanvas>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">
+      Results
+      <span *ngIf="animals.length > 0" class="badge bg-secondary ms-2">{{animals.length}}</span>
+    </h5>
+    <button (click)="offcanvas.dismiss()" class="btn-close" type="button"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="row">
+      <div class="col-sm">
+
+        <div *ngFor="let animal of animals; index as i" class="card shadow my-1">
+          <div class="card-body p-2">
+            <ul class="list-unstyled text-center">
+              <li *ngIf="animal.name !== ''">
+                <strong>{{animal.name}}</strong>
+              </li>
+              <li *ngIf="animal.species !== ''">{{animal.species}}</li>
+              <li *ngIf="animal.breed !== ''">{{animal.breed}}</li>
+              <li *ngIf="animal.email !== ''">{{animal.email}}</li>
+              <li *ngIf="animal.phone !== ''">{{animal.phone}}</li>
+              <li *ngIf="animal.address !== ''">
+                <em>{{animal.address}}</em>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

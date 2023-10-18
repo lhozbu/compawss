@@ -1,0 +1,14 @@
+<div class="container-fluid mt-1">
+  <div class="row">
+    <div class="col-sm-1">
+      <search-filter [searchMapComponent]="searchMapComponent" #searchFilterComponent></search-filter>
+    </div>
+    <div class="offset-sm-2 col-sm-6">
+      <search-input [searchMapComponent]="searchMapComponent"></search-input>
+    </div>
+    <div class="offset-sm-2 col-sm-1">
+      <search-results #searchResultsComponent></search-results>
+    </div>
+  </div>
+  <search-map #searchMapComponent [searchResultsComponent]="searchResultsComponent" [searchFilterComponent]="searchFilterComponent"></search-map>
+</div>

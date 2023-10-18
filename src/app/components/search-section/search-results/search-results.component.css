@@ -1,0 +1,4 @@
+.search-results {
+  max-height: 75vh !important;
+  overflow: scroll;
+}

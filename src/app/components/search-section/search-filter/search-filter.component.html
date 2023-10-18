@@ -1,0 +1,69 @@
+<div class="row">
+  <div class="col-sm">
+    <div class="d-grid gap-2 mb-1">
+      <button (click)="open()" class="btn btn-sm btn-dark shadow mt-1" type="button">
+        <span class="fa-solid fa-bars fa-fw"></span>
+        Filters
+      </button>
+    </div>
+  </div>
+</div>
+
+<ng-template #filterOffCanvas let-offcanvas>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Filters</h5>
+    <button (click)="offcanvas.dismiss()" class="btn-close" type="button"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="row">
+      <div class="col-sm">
+        <div>
+          <label>
+            <strong>Range</strong>
+            <span class="badge bg-secondary ms-2">{{range}} miles</span>
+          </label>
+          <input (change)="this.searchMapComponent.rangeChanged(this.range)" [(ngModel)]="range" class="form-range" max="50" min="5" step="5" type="range">
+        </div>
+        <hr>
+        <div>
+          <label>
+            <strong>Species</strong>
+            <button class="btn btn-sm btn-secondary py-0 px-1 position-absolute end-0 me-3" (click)="toggleSpecies()">
+              <span class="fa-solid fa-toggle-on fa-fw"></span>
+            </button>
+          </label>
+          <div *ngFor="let specie of species; index as i" class="form-check">
+            <input (change)="filterChanged()" [(ngModel)]="specie.checked" [id]="specie.id" checked class="form-check-input" type="checkbox">
+            <label class="form-check-label">{{specie.id}}</label>
+          </div>
+        </div>
+        <hr>
+        <div>
+          <label>
+            <strong>Sizes</strong>
+            <button class="btn btn-sm btn-secondary py-0 px-1 position-absolute end-0 me-3" (click)="toggleSizes()">
+              <span class="fa-solid fa-toggle-on fa-fw"></span>
+            </button>
+          </label>
+          <div *ngFor="let size of sizes; index as i" class="form-check">
+            <input (change)="filterChanged()" [(ngModel)]="size.checked" [id]="size.id" checked class="form-check-input" type="checkbox">
+            <label class="form-check-label">{{size.id}}</label>
+          </div>
+        </div>
+        <hr>
+        <div>
+          <label>
+            <strong>Breeds</strong>
+            <button class="btn btn-sm btn-secondary py-0 px-1 position-absolute end-0 me-3" (click)="toggleBreeds()">
+              <span class="fa-solid fa-toggle-on fa-fw"></span>
+            </button>
+          </label>
+          <div *ngFor="let breed of breeds; index as i" class="form-check">
+            <input (change)="filterChanged()" [(ngModel)]="breed.checked" [id]="breed.id" checked class="form-check-input" type="checkbox">
+            <label class="form-check-label">{{breed.id}}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

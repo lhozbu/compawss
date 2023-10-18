@@ -1,0 +1,13 @@
+<div class="card shadow">
+  <div class="card-body p-1">
+    <div class="hstack gap-2">
+      <input class="form-control form-control-sm" placeholder="Search location..." type="text" (keyup.enter)="centerMapAddress()" [(ngModel)]="address">
+      <div class="vr"></div>
+      <button class="btn btn-sm btn-dark" (click)="centerMapGeolocation()">
+        <span class="fa-solid fa-location-crosshairs fa-fw"></span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<loading-modal #loadingModalComponent></loading-modal>
